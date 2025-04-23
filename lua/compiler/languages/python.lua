@@ -668,10 +668,7 @@ function M.action(selected_option)
               .. ' && echo "'
               .. block_file
               .. '"'
-              .. ' && echo "--block finished--"'
-              .. ' && echo "'
-              .. final_message
-              .. '"',
+              .. ' && echo "--block finished--"',
             components = { "default_extended" },
           },
         },
