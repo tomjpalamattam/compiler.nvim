@@ -38,6 +38,17 @@ function M.action(selected_option)
   local output = utils.os_path(vim.fn.getcwd() .. "/bin/program")
   local final_message = "--task finished--"
 
+-- keep track of our one REPL
+M.python_repl = nil
+
+function M.action(selected_option)
+  local overseer = require("overseer")
+  local term_strategy = require("overseer.strategy.toggleterm").new({
+    direction = "horizontal",
+    close_on_exit = false,
+    quit_on_exit = "never",
+  })
+
   -- Helper: dump the current “# %%” code block to a temp .py and return its path
   local function dump_block_to_temp()
     local bufnr = vim.api.nvim_get_current_buf()
