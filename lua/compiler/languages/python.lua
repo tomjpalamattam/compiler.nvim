@@ -662,7 +662,7 @@ function M.action(selected_option)
         tasks = {
           {
             name = "- Run block → " .. block_file,
-            cmd = 'python "'
+            cmd = 'python -i "'
               .. block_file
               .. '"'
               .. ' && echo "'
